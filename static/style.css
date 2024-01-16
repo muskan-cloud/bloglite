@@ -1,0 +1,109 @@
+
+html,body {
+    height: 100%;
+  }
+  a:link, a:visited{
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: skyblue;
+    background-color: transparent;
+    text-decoration: underline;
+    }
+
+  body {
+    margin: 0px ;
+    height: fit-content;
+    align-items: center;
+    background-attachment: fixed;
+    background-color:rgb(191, 127, 244);
+    color:black;
+  }
+  nav{
+    margin-top: 0%;
+    text-align: center;
+    background-color: blueviolet;
+    font-size: xx-large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:lightgrey;
+
+  }
+  .card,form,table {
+    margin:auto;
+    margin-top: 5%;
+    width:18 rem;
+    font-size: xx-large;
+    text-align:center;
+    background-color: blueviolet;
+    color: lightgrey;
+    border: 18rem;
+  }
+  .card1 {
+    margin: auto;
+    margin-top: 5%;
+    width: 18 rem;
+    font-size: xx-large;
+    text-align: center;
+    background-color: blueviolet;
+    color: lightgrey;
+    border: 1px solid black;
+  }
+  
+  .card1 img {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+  }
+  
+  table,th,td{
+    font-size: auto;
+    border: 1px solid lightgrey;
+    border-spacing: 10px;
+    padding: 5px;
+  }
+  .footer,button{
+    background-color: white;
+    color: black;
+    font-size: auto;
+    width:10em;
+    height: 3em;
+  }
+  .lb{
+    background-color: lightgrey;
+    color: black;
+    font: auto;
+    width:10em;
+    height: 3em;
+  }
+  .card1 {
+    box-shadow: 0 4px 8px 0 rgba(10, 48, 184, 0.2);
+    transition: 0.3s;
+    background-color: rgba(105, 94, 94, 0.352);
+    border-radius: 5px;
+    color: lightgrey;
+    margin: auto;
+    margin-top: 5%;
+    width: 25rem;
+    font-size: xx-large;
+    text-align: center;
+    border: 1px solid rgb(167, 16, 213);
+  }
+
+  .card1:hover {
+    box-shadow: 0 18px 25px 0 rgba(63, 0, 100, 0.9);
+  }
+
+  select {
+    background-color: blue;
+    color: beige;
+  }
+
+  option {
+    background-color: blue;
+    color: lightgray;
+  }
+  
+  
+  

@@ -1,0 +1,71 @@
+<div id="app">
+    <div v-if="success">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" @click="goToFollowers">Followers</a>
+                    <a class="nav-item nav-link" @click="goToFollowing">Following</a>
+                </div>
+            </nav>
+        </div>
+        <nav class="navbar bg-light">
+            <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="text-align: center; flex-grow: 1;">
+                    <h1 class="navbar-brand mb-0" style="margin-left: 200px;">{{ profile.username }}'s Profile ✨ </h1>
+                </div>
+                <div><button>
+                        <router-link :to="'/feed/' + currentUserEmail">your feed</router-link></button>
+                </div>
+        </nav>
+
+        <h1>Posts</h1>
+        <ul style="list-style: none; margin: 0; padding: 0;">
+            <li v-for="postObj in posts" :key="postObj.id" class="card1">
+                <h3>
+                    <router-link :to="{ name: 'profile', params: { email: postObj.user.email } }">
+                        {{ postObj.user.username }}
+                    </router-link>
+                </h3>
+                <br>
+                <img :src="'data:image/*;charset=utf-8;base64,' + postObj.picture" height="500px" width="300px"><br>
+                <h3>{{ postObj.title }}</h3>
+                <button v-if="LikeStatus[postObj.id] !== null" @click="likeUnlike(postObj)">
+                    {{ LikeStatus[postObj.id] ? 'Unlike' : 'Like' }}
+                </button>
+                <button v-if="postObj.user.email === currentUserEmail" @click="deletePost(postObj)">Delete</button>
+                <form @submit.prevent="addComment(postObj)">
+                    <input type="text" v-model="commentText[postObj.id]" placeholder="Add a comment...">
+                    <button type="submit">Add</button>
+                </form>
+
+                <button @click="commentCollapsed = !commentCollapsed">{{ commentCollapsed ? 'Show Comments' : 'Hide
+                    Comments' }}</button>
+                <div v-show="!commentCollapsed">
+                    <ul>
+                        <li v-for="comment in postObj.comments" :key="comment.id">
+                            <p>{{ comment.user.username }}: {{ comment.text }}</p>
+                            <button v-if="comment.user.email === currentUserEmail"
+                                @click="deleteComment(postObj, comment)">Delete</button>
+                        </li>
+                    </ul>
+                </div>
+
+
+            </li>
+        </ul>
+    
+
+    <footer style="display: flex; justify-content: flex-end;">
+        <div class="buttons">
+            <button><router-link to="/add_new_post">New_post</router-link></button>
+            <button><router-link to="/search">Search</router-link></button>
+            <button href="/" @click.prevent="logout">Logout</button>
+        </div>
+    </footer>
+</div>
+<div v-else>
+    {{error}}
+</div>
+</div>
+
+
